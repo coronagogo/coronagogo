@@ -121,11 +121,11 @@
         $(".paopao").each(function () {
 
             if($(this).index()%2 == 0){
-                pp.step = 100;
-            }else if($(this).index()%3 == 0){
                 pp.step = 200;
-            }else{
+            }else if($(this).index()%3 == 0){
                 pp.step = 300;
+            }else{
+                pp.step = 500;
             }
 
             if (!$(this).is(":animated")) {
