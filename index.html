@@ -1,0 +1,138 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<title>Corona GO!</title>
+		<link href="coronagogo/base.css" type="text/css" rel="stylesheet">
+	<style>
+		.main{
+			text-align: center;
+			background-color: #fff;
+			border-radius: 20px;
+			width: 400px;
+			height: 350px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-size:60px;
+			font-weight:bold;
+		}
+		.hello {
+			display:none;
+		}
+	</style></head>
+	
+
+	<body>
+		<div class="main">
+			<div class="hello" style="display: block; opacity: 0.910694;">
+				<div id="l"></div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="pao">
+			<div class="paopao iconfont" style="left: 4px; color: rgb(79, 206, 145); top: -997.479px; font-size: 99.8229px; opacity: 0.00260393;"></div></div>
+		</div>
+	
+
+	<script src="coronagogo/jq.js"></script>
+	<script>
+		var vs = [
+			{h:'ကိုရိုနာ', v: 'GO!'},
+			{h:'Corona', v: 'သွား'},
+
+		
+		]
+		var i = 0
+		var len = vs.length
+
+		$(function() {
+			begin()
+			setInterval(function() {
+				begin()
+			},5000)
+		})
+
+		function begin() {
+			$('.hello').css('display','none')
+			$('#l').html(vs[i].h)
+		
+			show()
+			if(i < len - 1){
+				i++
+			} else {
+				i = 0
+			}
+		}
+
+		function show() {
+			$('.hello').fadeToggle(2500);
+			setTimeout(function() {
+				$('.hello').fadeOut(2500);
+			},2500)
+		}
+
+	</script>
+	<script type="text/javascript">
+    $(function(){
+        paopao();
+    });
+ 	var vs2 = [
+			
+			{h:'Corona GO!'},
+			{h:'ကိုရိုနာ သွား!'},
+
+		
+		]
+    var pp = {
+        pl : 0,  
+       color : ["ce4f6d","ca4fce","4f82ce","4fce91","ceca4f"], 
+        c : 0,  
+        step : 500
+    };
+    function paopao(){
+    
+        var html = '<div class="paopao iconfont" style="left: '+ pp.pl + 'px;color: #'+ pp.color[pp.c] +'">'+vs[i].v+'</div>';
+         var html2 = '<div class="paopao iconfont" style="right: '+ pp.pl + 'px;color: #'+ pp.color[pp.c] +'">'+vs2[i].h+'</div>';
+        $(".pao").append(html);
+  $(".pao").append(html2);
+      
+        pp.c ++;
+        if(pp.c >= pp.color.length){
+            pp.c = 0;
+        }
+
+        pp.pl = Math.round(Math.random()*1000/1); 
+
+      
+        $(".paopao").each(function () {
+
+            if($(this).index()%2 == 0){
+                pp.step = 100;
+            }else if($(this).index()%3 == 0){
+                pp.step = 200;
+            }else{
+                pp.step = 300;
+            }
+
+            if (!$(this).is(":animated")) {
+                $(this).animate({           
+                    top: "-1000px",
+                    fontSize: "100px",
+                    opacity: "0"
+                }, (500-pp.step)*10,
+                function () {
+                    $(this).remove();     
+                })
+            }
+        });
+    
+        setTimeout(paopao,pp.step);
+    }
+
+</script>
+<p> Copyright ©2019 KST </p>
+</body></html>
